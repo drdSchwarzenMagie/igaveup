@@ -1,6 +1,7 @@
 # Функциональные модели
 
-![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/f8ec7c62-7f17-400b-b975-3996e2432f02)
+![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/0dad9c23-4ee3-4a10-bce2-8240555a6d2a)
+
 
 ### Проигрывание треков
 
@@ -10,7 +11,8 @@
 
 **Максимка:** Слушает музыку и наслаждается.
 
-![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/8137e8e4-defd-4280-82ce-3f775e1a1d10)
+![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/d5f2e0c5-4742-45f4-a175-c9ef6eb7ca8f)
+
 
 
 ### Пролистывание треков вперёд и назад
@@ -23,7 +25,8 @@
 
 **Приложение:** Продолжает воспроизведение с выбранного лютого трека.
 
-![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/ad95a8f8-2318-4621-acb1-bf699264a7e1)
+![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/3a866037-54b2-405d-a3d2-39d628c72f3e)
+
 
 
 ### Постановка трека на паузу
@@ -56,7 +59,8 @@
 
 **Приложение:** Останавливает воспроизведение и сбрасывает позицию трека к началу.
 
-![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/efad35e4-d46c-4368-b08f-205e8d3bda5a)
+![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/226ae753-82f9-44bc-accd-09e64504f810)
+
 
 ### Мьют/Анмьют
 
@@ -68,6 +72,7 @@
 
 **Приложение:** Громкость на значение до нажатия кнопки.
 
-![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/c8f2449b-f183-4e09-990f-c5558f30f639)
+![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/a1763b2b-1cfb-42e5-8b6c-f7204cbc4213)
+
 
 
