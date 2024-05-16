@@ -16,4 +16,6 @@
 
 [Функциональные возможности](https://github.com/drdSchwarzenMagie/igaveup/blob/main/docs/functions.md)
 
+[Структурные модели](https://github.com/drdSchwarzenMagie/igaveup/blob/main/docs/struct.md)
+
 **Благодарим за использование нашего плеера! АТ ДУШИ БРАТ**
