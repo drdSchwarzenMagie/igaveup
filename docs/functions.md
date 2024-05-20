@@ -1,6 +1,7 @@
 # Функциональные модели
 
-![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/0dad9c23-4ee3-4a10-bce2-8240555a6d2a)
+![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/da7fc089-7d6b-4495-99ef-536376dff7a8)
+
 
 
 ### Проигрывание треков
