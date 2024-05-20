@@ -60,11 +60,10 @@
 
 **Приложение делает:** Останавливает воспроизведение текущего трека и возвращает его к началу.
 
+![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/653d7e2f-af28-4e5c-924f-6cddfaed198e)
 
-![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/226ae753-82f9-44bc-accd-09e64504f810)
 
-
-### Мьют/Анмьют
+### Выключить/Включить звук
 
 **Пользователь делает:** Нажимает кнопку "Выключить звук".
 
@@ -74,7 +73,8 @@
 
 **Приложение:** Громкость на значение до нажатия кнопки.
 
-![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/a1763b2b-1cfb-42e5-8b6c-f7204cbc4213)
+![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/686bbf86-3e4f-4a52-a4a9-93e9351ab478)
+
 
 
 
