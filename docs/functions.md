@@ -2,7 +2,11 @@
 
 ![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/da7fc089-7d6b-4495-99ef-536376dff7a8)
 
+### Загрузка треков
+**Пользователь делает**: Выбирает директорию с музыкой.
+**Приложение делает**: Загружает файлы нужных форматов в плейлист.
 
+![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/44f25678-83dc-4cd1-ab94-98bc801061d9)
 
 ### Проигрывание треков
 
