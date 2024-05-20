@@ -14,9 +14,8 @@
 
 **Приложение делает:** Начинает воспроизведение выбранного трека.
 
-**Пользователь:** Слушает музыку и наслаждается.
 
-![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/d5f2e0c5-4742-45f4-a175-c9ef6eb7ca8f)
+![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/b17e3fa7-ff35-4507-becd-66762d977c7f)
 
 
 
@@ -30,7 +29,8 @@
 
 **Приложение:** Продолжает воспроизведение с выбранного лютого трека.
 
-![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/3a866037-54b2-405d-a3d2-39d628c72f3e)
+![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/d62652f0-1f76-40ee-be70-72b0164673f7)
+
 
 
 
