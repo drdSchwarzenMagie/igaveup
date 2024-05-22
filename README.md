@@ -19,4 +19,6 @@
 
 [Структурные модели](https://github.com/drdSchwarzenMagie/igaveup/blob/main/docs/struct.md)
 
+[Поведенческие модели](https://github.com/drdSchwarzenMagie/igaveup/blob/main/docs/behavior.md)
+
 **Благодарим за использование нашего плеера! АТ ДУШИ БРАТ**
