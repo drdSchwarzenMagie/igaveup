@@ -1,0 +1,26 @@
+
+[*] --> Idle
+
+Idle : Initial state
+
+Idle --> Close : Press Close
+Close --> [*]
+Idle --> Loading_Playlist : Chose Directory
+Loading_Playlist --> Player : Press Play
+state Player {
+Playing --> Paused : Press Pause
+Playing --> Stopped : Press Stop
+Paused --> Playing : Press Play
+Paused --> Stopped : Press Stop
+Stopped --> Playing : Press Play
+state Control_Playing {
+Paused --> Next_Track_Playing : Press Next
+Playing --> Next_Track_Playing : Press Next
+
+Paused --> Prev_Track_Playing : Press Prev
+Playing --> Prev_Track_Playing : Press Prev
+}
+}
+Player --> Close : Press Close
+
+@enduml
