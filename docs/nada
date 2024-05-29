@@ -24,3 +24,34 @@ Playing --> Prev_Track_Playing : Press Prev
 Player --> Close : Press Close
 
 @enduml
+-----------------------------------------------------
+
+@startuml
+
+class Player {
+   + curr_track: string
+   + playlist: List<Track>
+   * select_track(track: Track)
+   * play()
+   * pause()
+   * stop()
+   * load_music(directory: string)
+   * next_track()
+   * previous_track()
+}
+
+class Track {
+   + title: string
+   + is_paused: boolean
+   + duration: int
+   + is_mute: boolean
+   * mute()
+   * unmute()
+}
+
+
+
+Player  *--  Track
+
+
+@enduml
