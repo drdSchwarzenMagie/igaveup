@@ -5,7 +5,12 @@
 ## Диаграммы классов
 Диаграмма классов показывает структуру основных классов в модуле music_control.py, их взаимосвязи и методы.
 
-![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/35ae3e1b-3590-4e49-9bdc-183d7841ef6a)
+![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/35ae3e1b-3590-4e49-9bdc-183d7841ef6a) ![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/50a9d319-46fc-49df-8c51-31b2dc33352c) ![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/e46db617-2d21-452d-a52c-961f447d3b18) ![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/6630d5e4-edf4-4172-9954-19d8ca64d6bf) ![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/df654b4d-f4f0-4bda-8bfd-64e80c43cc00) ![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/aca9b760-83d4-4b82-bda4-645509bf4509)
+
+
+
+
+
 
 
 ### Описание диаграммы
