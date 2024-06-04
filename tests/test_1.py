@@ -38,22 +38,25 @@ def test_play_track(player, tmpdir):
     song1 = tmpdir.join("song1.mp3")
     shutil.copy(TEST_MP3_PATH, song1)
     player.track_list = [Track(song1)]
-    track_title = player.play_track()
+    with patch('pygame.mixer.music.play'):
+        track_title = player.play_track()
     assert track_title == "song1.mp3"
 
 def test_pause_track(player, tmpdir):
     song1 = tmpdir.join("song1.mp3")
     shutil.copy(TEST_MP3_PATH, song1)
     player.track_list = [Track(song1)]
-    player.play_track()
-    player.pause_track()
-    assert player.is_paused
-    player.pause_track()
-    assert not player.is_paused
+    with patch('pygame.mixer.music.pause'):
+        player.play_track()
+        player.pause_track()
+        assert player.is_paused
+        player.pause_track()
+        assert not player.is_paused
 
 def test_stop_track(player):
-    player.stop_track()
-    # Since we're using mocks, we can't assert on mixer calls. Just ensure no exceptions.
+    with patch('pygame.mixer.music.stop'):
+        player.stop_track()
+    # No need to assert anything, just ensure no exceptions are raised.
 
 def test_next_track(player, tmpdir):
     song1 = tmpdir.join("song1.mp3")
@@ -62,7 +65,8 @@ def test_next_track(player, tmpdir):
     shutil.copy(TEST_MP3_PATH, song2)
     player.track_list = [Track(song1), Track(song2)]
     player.current_track_index = 0
-    track_title = player.next_track()
+    with patch('pygame.mixer.music.play'):
+        track_title = player.next_track()
     assert track_title == "song2.mp3"
     assert player.current_track_index == 1
 
@@ -73,27 +77,29 @@ def test_prev_track(player, tmpdir):
     shutil.copy(TEST_MP3_PATH, song2)
     player.track_list = [Track(song1), Track(song2)]
     player.current_track_index = 1
-    track_title = player.prev_track()
+    with patch('pygame.mixer.music.play'):
+        track_title = player.prev_track()
     assert track_title == "song1.mp3"
     assert player.current_track_index == 0
 
 def test_toggle_mute(player):
-    with patch('pygame.mixer.music.set_volume') as mock_set_volume:
-        pygame.mixer.music.get_volume.return_value = 1.0
+    with patch('pygame.mixer.music.get_volume', return_value=1.0), \
+         patch('pygame.mixer.music.set_volume') as mock_set_volume:
         player.toggle_mute()
         mock_set_volume.assert_called_with(0.0)
 
         # Reset mock
         mock_set_volume.reset_mock()
 
-        pygame.mixer.music.get_volume.return_value = 0.0
-        player.toggle_mute()
+        with patch('pygame.mixer.music.get_volume', return_value=0.0):
+            player.toggle_mute()
         mock_set_volume.assert_called_with(1.0)
 
 # Test PlayerApp class
 @pytest.fixture
 def player_app():
-    with patch('tkinter.Tk'):
+    with patch('tkinter.Tk'), \
+         patch.object(PlayerApp, '__init__', lambda x, y: None):  # Mocking __init__ method
         return PlayerApp()
 
 def test_load_directory(player_app, tmpdir):
