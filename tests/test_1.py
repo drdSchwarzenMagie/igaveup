@@ -99,7 +99,7 @@ def test_toggle_mute(player):
 @pytest.fixture
 def player_app():
     with patch('tkinter.Tk'), \
-         patch.object(PlayerApp, '__init__', lambda x, y: None):  # Мокируем метод __init__
+         patch.object(PlayerApp, '__init__', lambda self, root: None):  # Мокируем метод __init__
         return PlayerApp()
 
 def test_load_directory(player_app, tmpdir):
@@ -114,7 +114,7 @@ def test_play_track_app(player_app, tmpdir):
     shutil.copy(TEST_MP3_PATH, song1)
     player_app.player.track_list = [Track(song1)]
     player_app.play_track()
-    assert player_app.track_label.cget("text") == "Сейчас играет: song1.mp3"
+    assert player_app.track_label.cget("text") == "Now playing: song1.mp3"
 
 def test_next_track_app(player_app, tmpdir):
     song1 = tmpdir.join("song1.mp3")
@@ -124,7 +124,7 @@ def test_next_track_app(player_app, tmpdir):
     player_app.player.track_list = [Track(song1), Track(song2)]
     player_app.player.current_track_index = 0
     player_app.next_track()
-    assert player_app.track_label.cget("text") == "Сейчас играет: song2.mp3"
+    assert player_app.track_label.cget("text") == "Now playing: song2.mp3"
 
 def test_prev_track_app(player_app, tmpdir):
     song1 = tmpdir.join("song1.mp3")
@@ -134,4 +134,4 @@ def test_prev_track_app(player_app, tmpdir):
     player_app.player.track_list = [Track(song1), Track(song2)]
     player_app.player.current_track_index = 1
     player_app.prev_track()
-    assert player_app.track_label.cget("text") == "Сейчас играет: song1.mp3"
+    assert player_app.track_label.cget("text") == "Now playing: song1.mp3"
