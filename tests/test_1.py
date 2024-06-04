@@ -115,10 +115,20 @@ def test_toggle_mute(player):
     player.toggle_mute()
     unmuted_volume = pygame.mixer.music.get_volume()
 
-    assert initial_volume == 1.0
-    assert muted_volume == 0.0
-    assert unmuted_volume == initial_volume
 
+    assert muted_volume == 0.0
+
+
+def test_toggle_unmute(player):
+    pygame.mixer.music.set_volume(1.0)
+    initial_volume = pygame.mixer.music.get_volume()
+    player.toggle_mute()
+    muted_volume = pygame.mixer.music.get_volume()
+    player.toggle_mute()
+    unmuted_volume = pygame.mixer.music.get_volume()
+
+    assert initial_volume == 1.0
+    assert unmuted_volume == initial_volume
 
 # Test PlayerApp class
 @pytest.fixture
