@@ -109,9 +109,10 @@ def test_prev_track_empty_track_list(player):
     assert player.prev_track() == ""
 def test_toggle_mute(player):
     pygame.mixer.music.set_volume(1.0)
+    correct_mute_vol = 0.0
     player.toggle_mute()
     muted_volume = pygame.mixer.music.get_volume()
-    assert muted_volume == 0.0
+    assert muted_volume == correct_mute_vol
 
 
 def test_toggle_unmute(player):
