@@ -1,9 +1,15 @@
-name: Run Unit Tests
+name: Python application
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -12,17 +18,15 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.x'
+        python-version: '3.x' # Выберите версию Python, которую вы хотите использовать (например, 3.8)
 
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        pip install pytest pytest-cov pygame
+        pip install pygame
+        pip install pytest
 
-    - name: Run unit tests
-      run: |
-        pytest --cov=player tests/
-        coverage xml
+    - name: Run tests
+      run: pytest
 
-    - name: Coveralls
-      uses: coverallsapp/github-action@v2
+    - name: Build and run Tkinter app
+      run: python main.py # Замените 'your_tkinter_app.py' на имя вашего файла с Tkinter приложением
