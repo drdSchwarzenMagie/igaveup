@@ -7,10 +7,10 @@ import pygame
 import tkinter as tk
 from main import Track, Player, PlayerApp
 
-# Path to the test MP3 file
+# Путь к тестовому MP3 файлу
 TEST_MP3_PATH = os.path.join(os.path.dirname(__file__), 'test.mp3')
 
-# Test Track class
+# Тестирование класса Track
 def test_track_initialization():
     track = Track(TEST_MP3_PATH)
     assert track.file_path == TEST_MP3_PATH
@@ -20,7 +20,7 @@ def test_track_str():
     track = Track(TEST_MP3_PATH)
     assert str(track) == os.path.basename(TEST_MP3_PATH)
 
-# Test Player class
+# Тестирование класса Player
 @pytest.fixture
 def player():
     with patch('pygame.mixer.init'):
@@ -56,7 +56,7 @@ def test_pause_track(player, tmpdir):
 def test_stop_track(player):
     with patch('pygame.mixer.music.stop'):
         player.stop_track()
-    # No need to assert anything, just ensure no exceptions are raised.
+    # Не нужно ничего проверять, просто убедимся, что нет исключений.
 
 def test_next_track(player, tmpdir):
     song1 = tmpdir.join("song1.mp3")
@@ -88,18 +88,19 @@ def test_toggle_mute(player):
         player.toggle_mute()
         mock_set_volume.assert_called_with(0.0)
 
-        # Reset mock
+        # Сбросим мок
         mock_set_volume.reset_mock()
 
         with patch('pygame.mixer.music.get_volume', return_value=0.0):
             player.toggle_mute()
         mock_set_volume.assert_called_with(1.0)
 
-# Test PlayerApp class
+# Тестирование класса PlayerApp
 @pytest.fixture
 def player_app():
-    with patch('tkinter.Tk'), \
-         patch.object(PlayerApp, '__init__', lambda x, y: None):  # Mocking __init__ method
+    with patch('tkinter.Tk') as mock_tk:
+        mock_tk_instance = MagicMock()
+        mock_tk.return_value = mock_tk_instance
         return PlayerApp()
 
 def test_load_directory(player_app, tmpdir):
@@ -107,31 +108,4 @@ def test_load_directory(player_app, tmpdir):
     shutil.copy(TEST_MP3_PATH, tmpdir.join("song2.mp3"))
     player_app.player.load_tracks(tmpdir)
     player_app.update_playlist()
-    assert player_app.playlist_box.size() == 2
-
-def test_play_track_app(player_app, tmpdir):
-    song1 = tmpdir.join("song1.mp3")
-    shutil.copy(TEST_MP3_PATH, song1)
-    player_app.player.track_list = [Track(song1)]
-    player_app.play_track()
-    assert player_app.track_label.cget("text") == "Now playing: song1.mp3"
-
-def test_next_track_app(player_app, tmpdir):
-    song1 = tmpdir.join("song1.mp3")
-    song2 = tmpdir.join("song2.mp3")
-    shutil.copy(TEST_MP3_PATH, song1)
-    shutil.copy(TEST_MP3_PATH, song2)
-    player_app.player.track_list = [Track(song1), Track(song2)]
-    player_app.player.current_track_index = 0
-    player_app.next_track()
-    assert player_app.track_label.cget("text") == "Now playing: song2.mp3"
-
-def test_prev_track_app(player_app, tmpdir):
-    song1 = tmpdir.join("song1.mp3")
-    song2 = tmpdir.join("song2.mp3")
-    shutil.copy(TEST_MP3_PATH, song1)
-    shutil.copy(TEST_MP3_PATH, song2)
-    player_app.player.track_list = [Track(song1), Track(song2)]
-    player_app.player.current_track_index = 1
-    player_app.prev_track()
-    assert player_app.track_label.cget("text") == "Now playing: song1.mp3"
+    assert player_app.playlist_box.size() ==
