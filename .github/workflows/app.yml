@@ -19,9 +19,9 @@ jobs:
     - name: Install system dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y portaudio19-dev python3-dev xvfb ffmpeg
-        sudo apt-get install alsa-base alsa-utils
-        sudo apt-get install pulseaudio
+        sudo apt-get install -y libsdl2-dev libsdl2-mixer-dev libasound2-dev pulseaudio
+        python -m pip install --upgrade pip
+        pip install pygame
         
     - name: Install dependencies
       run: |
