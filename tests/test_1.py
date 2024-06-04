@@ -5,7 +5,7 @@ import pygame
 from main import Track, Player, PlayerApp
 import tkinter as tk
 
-os.environ['SDL_AUDIODRIVER'] = 'dsp'
+
 # Path to the test MP3 file
 TEST_MP3_PATH = os.path.join(os.path.dirname(__file__), 'test.mp3')
 
