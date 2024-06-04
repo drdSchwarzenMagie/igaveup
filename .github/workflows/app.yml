@@ -14,24 +14,15 @@ jobs:
       with:
         python-version: '3.x'
 
-        
-    - name: Install system dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y portaudio19-dev python3-dev xvfb ffmpeg
-        sudo apt-get install alsa-utils alsa-oss
-
-        
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install pytest pytest-cov
-        pip install pygame tkinter
-
 
     - name: Run unit tests
       run: |
-        pytest
+        pytest --cov=player tests/
+        coverage xml
 
     - name: Coveralls
       uses: coverallsapp/github-action@v2
