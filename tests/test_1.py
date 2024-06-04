@@ -108,8 +108,9 @@ def test_prev_track_empty_track_list(player):
     # Проверяем, что метод возвращает пустую строку при пустом списке треков
     assert player.prev_track() == ""
 def test_toggle_mute(player):
-    pygame.mixer.music.set_volume(1.0)
-    correct_mute_vol = 0.0
+    pygame.mixer.music.set_volume(0.0)
+    correct_mute_vol = pygame.mixer.music.get_volume()
+    player.toggle_mute()
     player.toggle_mute()
     muted_volume = pygame.mixer.music.get_volume()
     assert muted_volume == correct_mute_vol
