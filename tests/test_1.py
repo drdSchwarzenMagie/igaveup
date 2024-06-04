@@ -133,6 +133,7 @@ def test_load_directory(player_app, tmpdir):
     player_app.update_playlist()
     assert player_app.playlist_box.size() == 2
 
+
 def test_play_track_app(player_app, tmpdir):
     song1 = tmpdir.join("song1.mp3")
     shutil.copy(TEST_MP3_PATH, song1)
