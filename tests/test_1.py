@@ -6,6 +6,10 @@ import pygame
 from main import Track, Player, PlayerApp
 import tkinter as tk
 
+# Suppress specific pygame warning
+import warnings
+warnings.filterwarnings("ignore", category=RuntimeWarning, message="Your system is avx2 capable but pygame was not built with support for it")
+
 # Path to the test MP3 file
 TEST_MP3_PATH = os.path.join(os.path.dirname(__file__), 'test.mp3')
 
@@ -128,3 +132,8 @@ def test_prev_track_app(player_app, tmpdir):
     player_app.player.current_track_index = 1
     player_app.prev_track()
     assert player_app.track_label.cget("text") == "Now playing: song1.mp3"
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = PlayerApp(root)
+    root.mainloop()
