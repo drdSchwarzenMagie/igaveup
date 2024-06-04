@@ -82,6 +82,9 @@ class PlayerApp:
         self.pause_button = tk.Button(root, text="Pause", command=self.player.pause_track)
         self.pause_button.pack()
 
+        self.stop_button = tk.Button(root, text="Stop", command=self.player.stop_track)
+        self.stop_button.pack()
+
         self.next_button = tk.Button(root, text="Next", command=self.next_track)
         self.next_button.pack()
 
