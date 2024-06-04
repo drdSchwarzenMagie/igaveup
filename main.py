@@ -26,9 +26,7 @@ class Player:
             file_path = os.path.join(directory, file)
             if file.endswith('.mp3') and os.access(file_path, os.R_OK):
                 self.track_list.append(Track(file_path))
-        if not self.track_list:
-            messagebox.showerror("Error", "No readable MP3 files found in the directory")
-        self.current_track_index = 0
+        return bool(self.track_list)
 
     def play_track(self, track_index=None):
         if self.track_list:

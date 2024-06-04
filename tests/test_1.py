@@ -33,6 +33,8 @@ def test_load_tracks(player, tmpdir):
     assert player.track_list[0].title == "song1.mp3"
     assert player.track_list[1].title == "song2.mp3"
 
+def test_load_tracks_no_files(player, tmpdir):
+    assert not player.load_tracks(str(tmpdir))
 def test_play_track(player, tmpdir):
     song1 = tmpdir.join("song1.mp3")
     shutil.copy(TEST_MP3_PATH, song1)
@@ -128,3 +130,4 @@ def test_prev_track_app(player_app, tmpdir):
     player_app.player.current_track_index = 1
     player_app.prev_track()
     assert player_app.track_label.cget("text") == "Now playing: song1.mp3"
+
