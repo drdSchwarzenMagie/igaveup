@@ -73,14 +73,11 @@
 -----
 ## Диаграмма объектов и компонентов
 
-Конечно, вот диаграммы объектов и компонентов в формате PlantUML для вашего музыкального плеера.
-
 ### Диаграмма объектов
 
 Диаграмма объектов представляет конкретные экземпляры классов и их отношения в определенный момент времени.
 
-![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/311e753c-5251-4b36-8e1e-25d0a3d71e0e)
-
+![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/6f8ac60e-5f6c-4454-a76d-bde7cf56a15c)
 
 ### Диаграмма компонентов
 
@@ -88,15 +85,3 @@
 
 ![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/4b0e5d3f-b3a8-4b29-bc2f-cdaa82134cfd)
 
-
-### Диаграмма объектов
-
-![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/6f8ac60e-5f6c-4454-a76d-bde7cf56a15c)
-
-
-### Диаграмма компонентов
-
-![image](https://github.com/drdSchwarzenMagie/igaveup/assets/159145295/815160fb-2ef4-47f8-85de-68109e82121e)
-
-
-Эти диаграммы помогают визуализировать архитектуру и связи вашего музыкального плеера на разных уровнях абстракции.
