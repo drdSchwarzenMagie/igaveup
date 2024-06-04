@@ -1,3 +1,10 @@
+[![CI/CD GitHub Actions](https://github.com/drdSchwarzenMagie/igaveup/actions/workflows/app.yml/badge.svg)](https://github.com/drdSchwarzenMagie/igaveup/actions/workflows/app.yml)
+[![Coverage Status](https://coveralls.io/repos/drdSchwarzenMagie/igaveup/badge.svg?branch=main)](https://coveralls.io/github/drdSchwarzenMagie/igaveup?branch=main)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=drdSchwarzenMagie_igaveup&metric=alert_status)](https://sonarcloud.io/dashboard?id=drdSchwarzenMagie_igaveup)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=drdSchwarzenMagie_igaveup&metric=bugs)](https://sonarcloud.io/summary/new_code?id=drdSchwarzenMagie_igaveup)
+[![Code smells](https://sonarcloud.io/api/project_badges/measure?project=drdSchwarzenMagie_igaveup&metric=code_smells)](https://sonarcloud.io/dashboard?id=drdSchwarzenMagie_igaveup)
+
+
 # Музыкальный плеер
 
 Это простое приложение музыкального плеера, написанное на Python с использованием библиотеки Tkinter. Оно позволяет загружать директорию с MP3-файлами, воспроизводить/приостанавливать треки, переходить к следующему или предыдущему треку и включать/выключать звук. Приложение также отображает текущий плейлист и воспроизводимый трек.
