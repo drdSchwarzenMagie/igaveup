@@ -28,7 +28,7 @@ jobs:
 
     - name: Run unit tests
       run: |
-        xvfb-run -a coverage run -m pytest discover
+        xvfb-run -a coverage run -m pytest
         pytest xml
 
 
