@@ -20,6 +20,7 @@ jobs:
         pip install pytest pytest-cov
         pip install pygame
         pip install coverage
+        pip install tkinker
         sudo apt-get install -y portaudio19-dev python3-dev xvfb ffmpeg
         sudo apt-get install alsa-utils alsa-oss
 
