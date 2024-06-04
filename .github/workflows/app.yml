@@ -18,7 +18,7 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y portaudio19-dev python3-dev xvfb ffmpeg
-        sudo apt-get install alsa-utils alsa-oss
+        sudo apt-get install alsa-base alsa-utils
 
         
     - name: Install dependencies
