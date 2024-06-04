@@ -146,7 +146,7 @@ class PlayerApp:
         self.playlist_box.activate(self.player.current_track_index)
 
 
-if __name__ == "__main__":
-    root = tk.Tk()
-    app = PlayerApp(root)
-    root.mainloop()
+
+root = tk.Tk()
+app = PlayerApp(root)
+root.mainloop()
