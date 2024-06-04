@@ -160,3 +160,9 @@ def test_prev_track_app(player_app, tmpdir):
     player_app.prev_track()
     assert player_app.track_label.cget("text") == "Now playing: song1.mp3"
 
+def test_update_track_label_no_track(player_app, tmpdir):
+    # Вызываем метод update_track_label без аргументов
+    player_app.update_track_label()
+
+    # Проверяем, что метка трека обновлена с текстом "No track loaded"
+    assert player_app.track_label.cget("text") == "No track loaded"
