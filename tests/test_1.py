@@ -53,6 +53,9 @@ def test_play_track_with_track_index(player, tmpdir):
     # Проверяем, что индекс текущего трека изменился на 1
     assert player.current_track_index == 1
 
+def test_play_track_empty_track_list(player):
+    # Проверяем, что метод возвращает пустую строку при пустом списке треков
+    assert player.play_track() == ""
 
 def test_play_track(player, tmpdir):
     song1 = tmpdir.join("song1.mp3")
@@ -86,6 +89,10 @@ def test_next_track(player, tmpdir):
     assert track_title == "song2.mp3"
     assert player.current_track_index == 1
 
+def test_next_track_empty_track_list(player):
+    # Проверяем, что метод возвращает пустую строку при пустом списке треков
+    assert player.next_track() == ""
+
 def test_prev_track(player, tmpdir):
     song1 = tmpdir.join("song1.mp3")
     song2 = tmpdir.join("song2.mp3")
@@ -97,6 +104,9 @@ def test_prev_track(player, tmpdir):
     assert track_title == "song1.mp3"
     assert player.current_track_index == 0
 
+def test_prev_track_empty_track_list(player):
+    # Проверяем, что метод возвращает пустую строку при пустом списке треков
+    assert player.prev_track() == ""
 def test_toggle_mute(player):
     pygame.mixer.music.set_volume(1.0)
     initial_volume = pygame.mixer.music.get_volume()
