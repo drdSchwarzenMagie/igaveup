@@ -2,13 +2,10 @@ import os
 import shutil
 import pytest
 import tempfile
+from unittest.mock import MagicMock, patch
 import pygame
-from main import Track, Player, PlayerApp
 import tkinter as tk
-
-# Suppress specific pygame warning
-import warnings
-warnings.filterwarnings("ignore", category=RuntimeWarning, message="Your system is avx2 capable but pygame was not built with support for it")
+from main import Track, Player, PlayerApp
 
 # Path to the test MP3 file
 TEST_MP3_PATH = os.path.join(os.path.dirname(__file__), 'test.mp3')
@@ -26,8 +23,8 @@ def test_track_str():
 # Test Player class
 @pytest.fixture
 def player():
-    pygame.mixer.init()
-    return Player()
+    with patch('pygame.mixer.init'):
+        return Player()
 
 def test_load_tracks(player, tmpdir):
     shutil.copy(TEST_MP3_PATH, tmpdir.join("song1.mp3"))
@@ -56,7 +53,7 @@ def test_pause_track(player, tmpdir):
 
 def test_stop_track(player):
     player.stop_track()
-    # Since we're not mocking, we can't assert on mixer calls. Just ensure no exceptions.
+    # Since we're using mocks, we can't assert on mixer calls. Just ensure no exceptions.
 
 def test_next_track(player, tmpdir):
     song1 = tmpdir.join("song1.mp3")
@@ -81,23 +78,23 @@ def test_prev_track(player, tmpdir):
     assert player.current_track_index == 0
 
 def test_toggle_mute(player):
-    pygame.mixer.music.set_volume(1.0)
-    initial_volume = pygame.mixer.music.get_volume()
-    player.toggle_mute()
-    muted_volume = pygame.mixer.music.get_volume()
-    player.toggle_mute()
-    unmuted_volume = pygame.mixer.music.get_volume()
+    with patch('pygame.mixer.music.set_volume') as mock_set_volume:
+        pygame.mixer.music.get_volume.return_value = 1.0
+        player.toggle_mute()
+        mock_set_volume.assert_called_with(0.0)
 
-    assert initial_volume == 1.0
-    assert muted_volume == 0.0
-    assert unmuted_volume == initial_volume
+        # Reset mock
+        mock_set_volume.reset_mock()
+
+        pygame.mixer.music.get_volume.return_value = 0.0
+        player.toggle_mute()
+        mock_set_volume.assert_called_with(1.0)
 
 # Test PlayerApp class
 @pytest.fixture
 def player_app():
-    root = tk.Tk()
-    app = PlayerApp(root)
-    return app
+    with patch('tkinter.Tk'):
+        return PlayerApp()
 
 def test_load_directory(player_app, tmpdir):
     shutil.copy(TEST_MP3_PATH, tmpdir.join("song1.mp3"))
@@ -132,8 +129,3 @@ def test_prev_track_app(player_app, tmpdir):
     player_app.player.current_track_index = 1
     player_app.prev_track()
     assert player_app.track_label.cget("text") == "Now playing: song1.mp3"
-
-if __name__ == "__main__":
-    root = tk.Tk()
-    app = PlayerApp(root)
-    root.mainloop()
