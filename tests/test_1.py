@@ -102,14 +102,14 @@ def test_load_directory(player_app, tmpdir):
     player_app.update_playlist()
     assert player_app.playlist_box.size() == 2
 
-def test_play_track(player_app, tmpdir):
+def test_play_track_app(player_app, tmpdir):
     song1 = tmpdir.join("song1.mp3")
     shutil.copy(TEST_MP3_PATH, song1)
     player_app.player.track_list = [Track(song1)]
     player_app.play_track()
     assert player_app.track_label.cget("text") == "Now playing: song1.mp3"
 
-def test_next_track(player_app, tmpdir):
+def test_next_track_app(player_app, tmpdir):
     song1 = tmpdir.join("song1.mp3")
     song2 = tmpdir.join("song2.mp3")
     shutil.copy(TEST_MP3_PATH, song1)
@@ -119,7 +119,7 @@ def test_next_track(player_app, tmpdir):
     player_app.next_track()
     assert player_app.track_label.cget("text") == "Now playing: song2.mp3"
 
-def test_prev_track(player_app, tmpdir):
+def test_prev_track_app(player_app, tmpdir):
     song1 = tmpdir.join("song1.mp3")
     song2 = tmpdir.join("song2.mp3")
     shutil.copy(TEST_MP3_PATH, song1)
