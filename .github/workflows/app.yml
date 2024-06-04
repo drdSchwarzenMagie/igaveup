@@ -31,8 +31,7 @@ jobs:
 
     - name: Run unit tests
       run: |
-        pytest --cov=player tests/
-        coverage xml
+        pytest
 
     - name: Coveralls
       uses: coverallsapp/github-action@v2
