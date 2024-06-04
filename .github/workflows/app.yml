@@ -28,7 +28,7 @@ jobs:
         pip install pytest pytest-cov
         pip install pygame
         pip install coverage
-        pip install tkinter
+        pip install tk
 
     - name: Run unit tests
       run: |
