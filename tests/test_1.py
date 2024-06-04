@@ -1,7 +1,6 @@
 import os
 import shutil
 import pytest
-import tempfile
 import pygame
 from main import Track, Player, PlayerApp
 import tkinter as tk
