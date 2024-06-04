@@ -35,6 +35,25 @@ def test_load_tracks(player, tmpdir):
 
 def test_load_tracks_no_files(player, tmpdir):
     assert not player.load_tracks(str(tmpdir))
+
+def test_play_track_with_track_index(player, tmpdir):
+    # Подготавливаем данные для теста
+    song1 = tmpdir.join("song1.mp3")
+    song2 = tmpdir.join("song2.mp3")
+    shutil.copy(TEST_MP3_PATH, song1)
+    shutil.copy(TEST_MP3_PATH, song2)
+    player.track_list = [Track(song1), Track(song2)]
+
+    # Устанавливаем индекс текущего трека на нулевой
+    player.current_track_index = 0
+
+    # Вызываем метод play_track с указанием индекса трека
+    player.play_track(track_index=1)
+
+    # Проверяем, что индекс текущего трека изменился на 1
+    assert player.current_track_index == 1
+
+
 def test_play_track(player, tmpdir):
     song1 = tmpdir.join("song1.mp3")
     shutil.copy(TEST_MP3_PATH, song1)
