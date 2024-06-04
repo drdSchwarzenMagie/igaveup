@@ -166,3 +166,21 @@ def test_update_track_label_no_track(player_app, tmpdir):
 
     # Проверяем, что метка трека обновлена с текстом "No track loaded"
     assert player_app.track_label.cget("text") == "No track loaded"
+
+
+def test_on_playlist_select(player_app, tmpdir):
+    # Подготавливаем тестовые файлы и добавляем их в плейлист
+    song1_path = tmpdir.join("song1.mp3")
+    song2_path = tmpdir.join("song2.mp3")
+    song1_path.write("dummy content")
+    song2_path.write("dummy content")
+    player_app.player.load_tracks(tmpdir)
+
+    # Выбираем второй трек из плейлиста (индекс 1)
+    player_app.playlist_box.select_set(1)
+
+    # Вызываем метод on_playlist_select
+    player_app.on_playlist_select(None)
+
+    # Проверяем, что метод play_track был вызван с правильным аргументом (индекс выбранного трека)
+    assert player_app.player.current_track_index == 0
